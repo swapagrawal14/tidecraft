@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { templates } from "@/lib/data";
 import { Pill } from "@/components/ui";
-import TideShader from "@/components/shader/TideShader";
+import LivePreview from "@/components/library/LivePreview";
 import PromptPanel from "@/components/library/PromptPanel";
 
 export function generateStaticParams() {
@@ -47,23 +46,12 @@ export default async function TemplateDetailPage({
 
   return (
     <main className="mx-auto max-w-5xl px-6 pb-24">
-      {/* Preview band */}
+      {/* Preview band — the template's concept, playing live */}
       <div
         className="relative mt-10 flex min-h-[320px] items-end overflow-hidden rounded-3xl sm:min-h-[400px]"
         style={{ background: gradient }}
       >
-        {template.image ? (
-          <Image
-            src={template.image}
-            alt={`${template.name} preview`}
-            fill
-            sizes="(max-width: 1024px) 100vw, 1024px"
-            className="object-cover"
-            priority
-          />
-        ) : (
-          <TideShader variant={template.shader} className="absolute inset-0" />
-        )}
+        <LivePreview item={template} className="absolute inset-0" />
         <div className="absolute inset-0 bg-abyss/45" aria-hidden="true" />
         <div className="relative px-6 py-8 sm:px-10 sm:py-10">
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-snow/80">

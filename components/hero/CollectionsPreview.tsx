@@ -1,8 +1,9 @@
-import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/motion/Reveal";
 import { SectionHeading } from "@/components/ui";
+import LivePreview from "@/components/library/LivePreview";
 import type { Collection } from "@/lib/data";
+import { templates } from "@/lib/data";
 
 /** Homepage preview of the moodboard collections. */
 export default function CollectionsPreview({
@@ -21,19 +22,20 @@ export default function CollectionsPreview({
         />
       </Reveal>
       <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {items.map((collection, index) => (
+        {items.map((collection, index) => {
+          const coverTemplate = templates.find(
+            (t) => t.slug === collection.templates[0]
+          )!;
+          return (
           <Reveal key={collection.slug} delay={index * 0.06}>
             <Link
               href={`/collections/${collection.slug}`}
               className="card-hover group block overflow-hidden rounded-3xl border border-line bg-panel"
             >
               <div className="relative h-44 overflow-hidden">
-                <Image
-                  src={collection.cover}
-                  alt=""
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition duration-500 group-hover:scale-105"
+                <LivePreview
+                  item={coverTemplate}
+                  className="h-full w-full transition duration-500 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-abyss/70 via-transparent to-transparent" />
               </div>
@@ -50,7 +52,8 @@ export default function CollectionsPreview({
               </div>
             </Link>
           </Reveal>
-        ))}
+          );
+        })}
       </div>
       <Reveal delay={0.2}>
         <div className="mt-12 text-center">

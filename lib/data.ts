@@ -26,8 +26,6 @@ export interface TemplateItem {
   prompt: string;
   shader: ShaderVariant;
   featured?: boolean;
-  /** Cinematic preview image (public/templates/<slug>.jpg), generated art. */
-  image?: string;
 }
 
 export type LibraryKind = "component" | "shader" | "section" | "ui";

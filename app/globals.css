@@ -100,3 +100,65 @@ body {
     animation: none;
   }
 }
+
+/* LivePreview animations — small coded scenes that play in template cards */
+@keyframes tide-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes tide-drift {
+  0% { transform: translateX(-12%); }
+  100% { transform: translateX(112%); }
+}
+@keyframes tide-twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+@keyframes tide-sway {
+  0%, 100% { transform: rotate(-4deg); }
+  50% { transform: rotate(5deg); }
+}
+@keyframes tide-fall {
+  0% { transform: translateY(-12%) rotate(0deg); opacity: 0; }
+  15% { opacity: 1; }
+  100% { transform: translateY(340%) rotate(140deg); opacity: 0.9; }
+}
+@keyframes tide-spin-slow {
+  to { transform: rotate(360deg); }
+}
+@keyframes tide-settle {
+  0% { transform: translateY(-8%); }
+  100% { transform: translateY(46%); }
+}
+@keyframes tide-glow {
+  0%, 100% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.12); }
+}
+@keyframes tide-draw {
+  from { stroke-dashoffset: 320; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes tide-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.55; }
+  50% { transform: scale(1.18); opacity: 0.9; }
+}
+@keyframes tide-ripple {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.a-bob { animation: tide-bob 3s ease-in-out infinite; }
+.a-drift { animation: tide-drift 9s linear infinite; }
+.a-twinkle { animation: tide-twinkle 2.4s ease-in-out infinite; }
+.a-sway { animation: tide-sway 4s ease-in-out infinite; transform-origin: bottom center; }
+.a-fall { animation: tide-fall 5s linear infinite; }
+.a-spin-slow { animation: tide-spin-slow 14s linear infinite; }
+.a-settle { animation: tide-settle 7s ease-in-out infinite alternate; }
+.a-glow { animation: tide-glow 2.8s ease-in-out infinite; }
+.a-draw { stroke-dasharray: 320; animation: tide-draw 4s ease-in-out infinite alternate; }
+.a-breathe { animation: tide-breathe 4s ease-in-out infinite; }
+.a-ripple { animation: tide-ripple 6s linear infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .a-bob, .a-drift, .a-twinkle, .a-sway, .a-fall, .a-spin-slow, .a-settle, .a-glow, .a-draw, .a-breathe, .a-ripple {
+    animation: none;
+  }
+}

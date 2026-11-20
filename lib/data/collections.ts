@@ -7,8 +7,6 @@ export interface Collection {
   name: string;
   tagline: string;
   description: string;
-  /** Cover image path under /public. */
-  cover: string;
   /** Slugs of member templates (see lib/data/templates.ts). */
   templates: string[];
   /** Three hex colours for the collection's accent gradient. */
@@ -23,7 +21,6 @@ export const collections: Collection[] = [
     tagline: "Slow mornings, salt air, and pages that breathe.",
     description:
       "For sites that feel like the first hour at the beach: wide open space, soft blues, and motion that rolls in instead of shouting. Start here when the product should feel like a deep breath.",
-    cover: "/templates/saltline.jpg",
     templates: ["saltline", "lowtide", "driftwood"],
     palette: ["#0e7490", "#2dd4bf", "#fde68a"],
     mood: ["calm", "ocean", "minimal"],
@@ -34,7 +31,6 @@ export const collections: Collection[] = [
     tagline: "After-dark glow for products that never sleep.",
     description:
       "Deep navy, violet light, and charts that glow like city signs. These templates are built for dashboards, dev tools, and anything that looks better at 2am.",
-    cover: "/templates/vesper.jpg",
     templates: ["vesper", "nightferry", "juniper"],
     palette: ["#1e1b4b", "#a78bfa", "#2dd4bf"],
     mood: ["dark", "glow", "futuristic"],
@@ -45,7 +41,6 @@ export const collections: Collection[] = [
     tagline: "Green, growing things — and shops that feel alive.",
     description:
       "Leaves, light, and honest materials. A moodboard for skincare, studios, and retreats — sites where the photography does the talking and the layout stays out of the way.",
-    cover: "/templates/foxglove.jpg",
     templates: ["foxglove", "glasshouse", "halcyon"],
     palette: ["#14532d", "#86efac", "#fef3c7"],
     mood: ["green", "natural", "soft"],
@@ -56,7 +51,6 @@ export const collections: Collection[] = [
     tagline: "Ink, paper, and opinions worth reading.",
     description:
       "Magazines and journals with a spine: torn paper, big type, and photography that fills the frame. For publishers who want every scroll to feel like turning a page.",
-    cover: "/templates/paperstorm.jpg",
     templates: ["paperstorm", "nightferry", "kiln"],
     palette: ["#111827", "#f8fafc", "#ef4444"],
     mood: ["editorial", "bold", "print"],
@@ -67,7 +61,6 @@ export const collections: Collection[] = [
     tagline: "Made by hand, sold with heart.",
     description:
       "Terracotta, timber, and late-afternoon light. These templates are for makers — potters, cabins, small shops — where the story is the product and the site should feel like the workshop.",
-    cover: "/templates/kiln.jpg",
     templates: ["kiln", "driftwood", "foxglove"],
     palette: ["#7c2d12", "#fb923c", "#fef3c7"],
     mood: ["warm", "handmade", "earthy"],
@@ -78,7 +71,6 @@ export const collections: Collection[] = [
     tagline: "Colour, motion, and zero boredom.",
     description:
       "For the weird ones: generative art, illustrators, and surf schools. Bright palettes, bouncy scrolls, and layouts that refuse to sit still.",
-    cover: "/templates/juniper.jpg",
     templates: ["juniper", "starling", "lowtide"],
     palette: ["#be185d", "#2dd4bf", "#fde047"],
     mood: ["playful", "colour", "bold"],

@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/motion/Reveal";
 import { Pill, SectionHeading } from "@/components/ui";
+import LivePreview from "@/components/library/LivePreview";
 import type { TemplateItem } from "@/lib/data";
 
 /**
@@ -10,50 +10,12 @@ import type { TemplateItem } from "@/lib/data";
  * and links to /templates/[slug] the same way.
  */
 function FeaturedCard({ item }: { item: TemplateItem }) {
-  const [c1, c2, c3] = item.palette;
   return (
     <Link
       href={`/templates/${item.slug}`}
       className="card-hover group block overflow-hidden rounded-3xl border border-line bg-panel"
     >
-      <div
-        className="relative h-44 overflow-hidden"
-        style={{
-          background: `linear-gradient(135deg, ${c1} 0%, ${c2} 55%, ${c3} 100%)`,
-        }}
-      >
-        {item.image ? (
-          <Image
-            src={item.image}
-            alt=""
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition duration-500 group-hover:scale-105"
-          />
-        ) : (
-          <>
-            <svg
-              className="absolute inset-0 h-full w-full opacity-25"
-              viewBox="0 0 400 176"
-              preserveAspectRatio="none"
-              aria-hidden="true"
-            >
-              <path
-                d="M0 120 C 80 80, 140 150, 220 110 S 360 60, 400 100 L 400 176 L 0 176 Z"
-                fill="#04060d"
-              />
-              <path
-                d="M0 145 C 90 115, 170 165, 250 130 S 370 95, 400 125 L 400 176 L 0 176 Z"
-                fill="#04060d"
-                opacity="0.6"
-              />
-            </svg>
-            <span className="font-display relative text-5xl italic text-white/90">
-              {item.name.charAt(0)}
-            </span>
-          </>
-        )}
-      </div>
+      <LivePreview item={item} className="h-44 transition duration-500 group-hover:scale-[1.03]" />
       <div className="p-6">
         <h3 className="text-xl font-semibold text-snow">{item.name}</h3>
         <p className="mt-2 text-sm leading-relaxed text-mist">{item.tagline}</p>

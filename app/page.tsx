@@ -1,5 +1,6 @@
 import Hero from "@/components/hero/Hero";
 import Marquee from "@/components/hero/Marquee";
+import Showreel from "@/components/hero/Showreel";
 import LibraryGlance from "@/components/hero/LibraryGlance";
 import Workflow from "@/components/hero/Workflow";
 import FeaturedTemplates from "@/components/hero/FeaturedTemplates";
@@ -19,6 +20,7 @@ export default function Home() {
     <main>
       <Hero />
       <Marquee items={templates} />
+      <Showreel />
       <LibraryGlance
         counts={{
           templates: templates.length,
