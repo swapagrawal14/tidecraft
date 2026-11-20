@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { templates } from "@/lib/data";
@@ -51,8 +52,19 @@ export default async function TemplateDetailPage({
         className="relative mt-10 flex min-h-[320px] items-end overflow-hidden rounded-3xl sm:min-h-[400px]"
         style={{ background: gradient }}
       >
-        <TideShader variant={template.shader} className="absolute inset-0" />
-        <div className="absolute inset-0 bg-abyss/30" aria-hidden="true" />
+        {template.image ? (
+          <Image
+            src={template.image}
+            alt={`${template.name} preview`}
+            fill
+            sizes="(max-width: 1024px) 100vw, 1024px"
+            className="object-cover"
+            priority
+          />
+        ) : (
+          <TideShader variant={template.shader} className="absolute inset-0" />
+        )}
+        <div className="absolute inset-0 bg-abyss/45" aria-hidden="true" />
         <div className="relative px-6 py-8 sm:px-10 sm:py-10">
           <p className="font-mono text-xs uppercase tracking-[0.3em] text-snow/80">
             Template

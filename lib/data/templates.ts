@@ -9,6 +9,7 @@ import type { TemplateItem } from "../data";
 export const templates: TemplateItem[] = [
   {
     slug: "saltline",
+    image: "/templates/saltline.jpg",
     name: "Saltline",
     tagline: "A SaaS landing page that arrives like the tide.",
     description:
@@ -24,6 +25,7 @@ export const templates: TemplateItem[] = [
   },
   {
     slug: "nightferry",
+    image: "/templates/nightferry.jpg",
     name: "Nightferry",
     tagline: "A portfolio that crosses over after dark.",
     description:
@@ -39,6 +41,7 @@ export const templates: TemplateItem[] = [
   },
   {
     slug: "glasshouse",
+    image: "/templates/glasshouse.jpg",
     name: "Glasshouse",
     tagline: "An editorial reader with light coming through.",
     description:
@@ -54,6 +57,7 @@ export const templates: TemplateItem[] = [
   },
   {
     slug: "lowtide",
+    image: "/templates/lowtide.jpg",
     name: "Lowtide",
     tagline: "A surf school landing page that pulls you under.",
     description:
@@ -68,6 +72,7 @@ export const templates: TemplateItem[] = [
   },
   {
     slug: "starling",
+    image: "/templates/starling.jpg",
     name: "Starling",
     tagline: "An illustrator's portfolio that moves in a murmuration.",
     description:
@@ -82,6 +87,7 @@ export const templates: TemplateItem[] = [
   },
   {
     slug: "foxglove",
+    image: "/templates/foxglove.jpg",
     name: "Foxglove",
     tagline: "A botanical skincare shop in full bloom.",
     description:
@@ -96,6 +102,7 @@ export const templates: TemplateItem[] = [
   },
   {
     slug: "paperstorm",
+    image: "/templates/paperstorm.jpg",
     name: "Paperstorm",
     tagline: "An indie magazine that reads like weather.",
     description:
@@ -110,6 +117,7 @@ export const templates: TemplateItem[] = [
   },
   {
     slug: "kiln",
+    image: "/templates/kiln.jpg",
     name: "Kiln",
     tagline: "A ceramics studio store, fired and glazed.",
     description:
@@ -124,6 +132,7 @@ export const templates: TemplateItem[] = [
   },
   {
     slug: "driftwood",
+    image: "/templates/driftwood.jpg",
     name: "Driftwood",
     tagline: "A cabin-rental landing page washed up gently.",
     description:
@@ -138,6 +147,7 @@ export const templates: TemplateItem[] = [
   },
   {
     slug: "vesper",
+    image: "/templates/vesper.jpg",
     name: "Vesper",
     tagline: "An analytics SaaS that only speaks at dusk.",
     description:
@@ -152,6 +162,7 @@ export const templates: TemplateItem[] = [
   },
   {
     slug: "juniper",
+    image: "/templates/juniper.jpg",
     name: "Juniper",
     tagline: "An experimental playground grown from one seed.",
     description:
@@ -166,6 +177,7 @@ export const templates: TemplateItem[] = [
   },
   {
     slug: "halcyon",
+    image: "/templates/halcyon.jpg",
     name: "Halcyon",
     tagline: "A wellness retreat landing page at golden hour.",
     description:

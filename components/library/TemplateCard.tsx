@@ -1,17 +1,13 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { TemplateItem } from "@/lib/data";
 import { Pill } from "@/components/ui";
 
 /**
- * Card for one library template. Pure presentational component: a gradient
- * preview built from the item's own palette, name, tagline, category and
- * difficulty pills, and tags. Links to the template detail page.
- *
- * Preview note: the gradient is drawn from `item.palette` on purpose, so
- * this card never depends on the canvas shader. Once
- * `components/shader/TideShader` exists, the preview div can swap its
- * background for `<TideShader variant={item.shader} />` with the same
- * gradient as its reduced-motion fallback.
+ * Card for one library template. Pure presentational component: a cinematic
+ * AI-generated preview image (with the palette gradient behind it as a
+ * fallback), name, tagline, category and difficulty pills, and tags.
+ * Links to the template detail page.
  */
 export default function TemplateCard({ item }: { item: TemplateItem }) {
   const [first, second, third] = item.palette;
@@ -29,37 +25,49 @@ export default function TemplateCard({ item }: { item: TemplateItem }) {
         }}
         aria-hidden="true"
       >
-        {/* Subtle dot pattern over the gradient. */}
-        <div
-          className="absolute inset-0 opacity-20"
-          style={{
-            backgroundImage:
-              "radial-gradient(rgba(255,255,255,0.55) 1px, transparent 1px)",
-            backgroundSize: "18px 18px",
-          }}
-        />
-        {/* Tide lines. */}
-        <svg
-          className="absolute inset-x-0 bottom-0 h-12 w-full"
-          viewBox="0 0 400 48"
-          preserveAspectRatio="none"
-          fill="none"
-        >
-          <path
-            d="M0 24 C 60 8, 120 40, 200 24 S 340 8, 400 24"
-            stroke="rgba(255,255,255,0.35)"
-            strokeWidth="1.5"
+        {item.image ? (
+          <Image
+            src={item.image}
+            alt=""
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition duration-500 group-hover:scale-105"
           />
-          <path
-            d="M0 36 C 60 22, 120 48, 200 36 S 340 22, 400 36"
-            stroke="rgba(255,255,255,0.2)"
-            strokeWidth="1.5"
-          />
-        </svg>
-        {/* Oversized initial as a watermark. */}
-        <span className="absolute bottom-2 left-4 select-none font-display text-6xl italic text-white/25">
-          {item.name.charAt(0)}
-        </span>
+        ) : (
+          <>
+            {/* Subtle dot pattern over the gradient. */}
+            <div
+              className="absolute inset-0 opacity-20"
+              style={{
+                backgroundImage:
+                  "radial-gradient(rgba(255,255,255,0.55) 1px, transparent 1px)",
+                backgroundSize: "18px 18px",
+              }}
+            />
+            {/* Tide lines. */}
+            <svg
+              className="absolute inset-x-0 bottom-0 h-12 w-full"
+              viewBox="0 0 400 48"
+              preserveAspectRatio="none"
+              fill="none"
+            >
+              <path
+                d="M0 24 C 60 8, 120 40, 200 24 S 340 8, 400 24"
+                stroke="rgba(255,255,255,0.35)"
+                strokeWidth="1.5"
+              />
+              <path
+                d="M0 36 C 60 22, 120 48, 200 36 S 340 22, 400 36"
+                stroke="rgba(255,255,255,0.2)"
+                strokeWidth="1.5"
+              />
+            </svg>
+            {/* Oversized initial as a watermark. */}
+            <span className="absolute bottom-2 left-4 select-none font-display text-6xl italic text-white/25">
+              {item.name.charAt(0)}
+            </span>
+          </>
+        )}
       </div>
 
       <div className="p-5">
