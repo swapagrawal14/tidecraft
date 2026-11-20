@@ -48,3 +48,5 @@ export interface LibraryItem {
 
 export { templates } from "./data/templates";
 export { components, shaders, sections, uiScreens } from "./data/library";
+export { collections, inspirationShots } from "./data/collections";
+export type { Collection, InspirationShot } from "./data/collections";
